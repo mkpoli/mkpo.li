@@ -27,3 +27,9 @@ Captures day/night × desktop/mobile (scrolls through the page first so reveal-o
 bun run build          # prerenders the site into .svelte-kit/cloudflare
 bunx wrangler deploy   # deploys the "mkpo-li" Worker
 ```
+
+## Sponsor
+
+I make this site alone. I don't have a job, and my small TA pay doesn't cover rent and food. Even one dollar on [Ko-fi](https://ko-fi.com/mkpoli) helps me eat today. Companies interested in sponsoring can write to mkpoli@mkpo.li.
+
+[![Support me on Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/mkpoli)
