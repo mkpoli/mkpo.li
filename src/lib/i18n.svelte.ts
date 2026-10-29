@@ -25,6 +25,18 @@ export interface Messages {
 		externalLink: string;
 		portraitAlt: string;
 	};
+	sponsor: {
+		label: string;
+		close: string;
+		lead: string;
+		ask: string;
+		howTo: string;
+		steps: [string, string, string];
+		kofi: string;
+		company: string;
+		companyHint: string;
+		thanks: string;
+	};
 }
 
 const ja: Messages = {
@@ -47,6 +59,23 @@ const ja: Messages = {
 		menu: 'メニュー',
 		externalLink: '外部リンク',
 		portraitAlt: 'まくぽりのイラスト'
+	},
+	sponsor: {
+		label: 'スポンサー',
+		close: '閉じる',
+		lead: '言語と文字のための無料ツールやサイトを、大好きな気持ちで、ぜんぶ自費で作っています。仕事はなく、わずかなTAのお給料では家賃や食費すらまかないきれません。日によっては、ご飯を食べるのもやっとです……',
+		ask: '開発を続けられるよう、どうか力を貸してください🥺 たった1⁠ドルでも、今日の私のごはん代として本当に助かります。',
+		howTo: '応援の方法',
+		steps: [
+			'下のKo-fiをタップしてください。',
+			'お好きな金額を選んでください。少額でもすごく嬉しいです。',
+			'PayPalまたはカードでお支払いいただけます。会員登録は不要です。'
+		],
+		kofi: '1回だけでも、毎月でも',
+		company: '企業スポンサー',
+		companyHint: 'このサイトへの広告掲載も大歓迎です。mkpoli@mkpo.liまでぜひご連絡ください。',
+		thanks:
+			'ここまで読んでくださって本当にありがとうございます。あたたかいご支援のおかげで、今日のご飯が食べられて、プロジェクトを続けていくことができます💗'
 	}
 };
 
@@ -70,6 +99,22 @@ const en: Messages = {
 		menu: 'Menu',
 		externalLink: 'external link',
 		portraitAlt: 'Illustration of mkpoli'
+	},
+	sponsor: {
+		label: 'Sponsor',
+		close: 'Close',
+		lead: "I make free tools and sites for languages and writing, out of love, and I pay for them myself. I don't have a job, and my small TA pay doesn't cover rent and food. Some days I can barely afford to eat.",
+		ask: 'Please help me keep going 🥺 Even one dollar helps me eat today.',
+		howTo: 'How to help',
+		steps: [
+			'Tap Ko-fi below.',
+			'Pick any amount. Small is fine.',
+			'Pay with PayPal or a card. No sign-up needed.'
+		],
+		kofi: 'One-time or monthly',
+		company: 'Company sponsorship',
+		companyHint: "I'd love to put your ad on this site. Please write to mkpoli@mkpo.li.",
+		thanks: 'Thank you for reading this far. Your help keeps me fed and keeps my projects going 💗'
 	}
 };
 
@@ -93,6 +138,22 @@ const zh: Messages = {
 		menu: '菜单',
 		externalLink: '外部链接',
 		portraitAlt: 'mkpoli 的插画'
+	},
+	sponsor: {
+		label: '赞助',
+		close: '关闭',
+		lead: '出于一腔热爱，我一直在自费制作面向语言和文字的免费小工具与网站。我目前没有工作，微薄的助教补贴连房租和饭钱都不够，有些日子甚至快要吃不起饭了……',
+		ask: '求求大家帮帮我，让我能继续坚持下去🥺 哪怕只有1⁠美元，也能帮我解决今天的饭钱。',
+		howTo: '如何支持我',
+		steps: [
+			'点击下方的Ko-fi。',
+			'随心选择金额，哪怕一点点也超级感激。',
+			'使用PayPal或银行卡支付，无需注册账号。'
+		],
+		kofi: '单次或按月赞助',
+		company: '企业赞助',
+		companyHint: '我很乐意在网站上展示你的广告，欢迎发邮件至mkpoli@mkpo.li联系我。',
+		thanks: '谢谢你愿意看到这里。你的支持不仅能让我填饱肚子，也能让这些小项目继续走下去💗'
 	}
 };
 
