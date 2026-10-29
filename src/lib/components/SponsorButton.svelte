@@ -23,6 +23,13 @@
 		if (x < box.left || x > box.right || y < box.top || y > box.bottom) dialog.close();
 	}
 
+	/* The dialog lives under <body>: the top bar copy would otherwise sit inside the bar, which turns
+	 * inert when it hides on scroll and would freeze an open dialog with it. */
+	function portal(node: HTMLElement) {
+		document.body.append(node);
+		return { destroy: () => node.remove() };
+	}
+
 	const heart =
 		'M12 21s-8.5-5.1-8.5-11.3A4.7 4.7 0 0 1 12 6.9a4.7 4.7 0 0 1 8.5 2.8C20.5 15.9 12 21 12 21Z';
 </script>
@@ -47,6 +54,7 @@
 	<dialog
 		class="sponsor-dialog"
 		bind:this={dialog}
+		use:portal
 		aria-labelledby="sponsor-title"
 		onclose={() => (open = false)}
 		onclick={outside}
