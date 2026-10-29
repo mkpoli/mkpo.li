@@ -2,6 +2,7 @@
 	import { m, pick } from '$lib/i18n.svelte';
 	import { KEYWORDS } from '$lib/content';
 	import portrait from '$lib/assets/portrait.webp';
+	import SponsorButton from './SponsorButton.svelte';
 </script>
 
 {#snippet petals5(scale: number)}
@@ -109,6 +110,10 @@
 			<div class="rise mt-6 flex flex-wrap justify-center gap-2 lg:justify-start" style="--d: 460ms">
 				<span class="chip">{m().hero.location}</span>
 				<span class="chip">{m().hero.langs}</span>
+			</div>
+
+			<div class="rise mt-5" style="--d: 520ms">
+				<SponsorButton />
 			</div>
 
 			<nav

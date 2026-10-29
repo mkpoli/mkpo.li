@@ -2,6 +2,7 @@
 	import { m, getLocale, setLocale, type Locale } from '$lib/i18n.svelte';
 	import { getTheme, toggleTheme } from '$lib/theme.svelte';
 	import { KEYWORDS } from '$lib/content';
+	import SponsorButton from './SponsorButton.svelte';
 
 	/* Language names are always shown in their own script, regardless of
 	 * the active locale — that is the point of a language switcher. */
@@ -99,6 +100,8 @@
 	</nav>
 
 	<div class="ml-auto flex shrink-0 items-center gap-2">
+		<SponsorButton compact />
+
 		<div class="locale-group" role="group" aria-label={m().a11y.langLabel}>
 			{#each localeButtons as { locale, label } (locale)}
 				<button
