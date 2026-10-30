@@ -63,19 +63,18 @@ const ja: Messages = {
 	sponsor: {
 		label: 'スポンサー',
 		close: '閉じる',
-		lead: '言語と文字のための無料ツールやサイトを、大好きな気持ちで、ぜんぶ自費で作っています。仕事はなく、わずかなTAのお給料では家賃や食費すらまかないきれません。日によっては、ご飯を食べるのもやっとです……',
-		ask: '開発を続けられるよう、どうか力を貸してください🥺 たった1⁠ドルでも、今日の私のごはん代として本当に助かります。',
-		howTo: '応援の方法',
+		lead: 'これらのプロジェクトは外部からの資金援助を受けず、すべて個人で開発しています。どなたでも無料で利用できるようにしており、これからもずっと無料で続けていきたいと思っています。',
+		ask: 'もし制作物が少しでもお役に立っていましたら、Ko-fiでチップをいただけると、改善を続けていく時間を確保できます。',
+		howTo: 'チップの贈り方',
 		steps: [
-			'下のKo-fiをタップしてください。',
-			'お好きな金額を選んでください。少額でもすごく嬉しいです。',
-			'PayPalまたはカードでお支払いいただけます。会員登録は不要です。'
+			'下のKo-fiをタップします。',
+			'1回のみ、または毎月からお好きな金額を選びます。',
+			'PayPalまたはカードで支払います。アカウント登録は不要です。'
 		],
-		kofi: '1回だけでも、毎月でも',
-		company: '企業スポンサー',
-		companyHint: 'このサイトへの広告掲載も大歓迎です。mkpoli@mkpo.liまでぜひご連絡ください。',
-		thanks:
-			'ここまで読んでくださって本当にありがとうございます。あたたかいご支援のおかげで、今日のご飯が食べられて、プロジェクトを続けていくことができます💗'
+		kofi: '1回のみ、または毎月',
+		company: '企業様からのスポンサーも受け付けています',
+		companyHint: '当サイトへの広告掲載が可能です。mkpoli@mkpo.liまでお気軽にご連絡ください。',
+		thanks: '見に来てくださりありがとうございます💗'
 	}
 };
 
@@ -103,18 +102,18 @@ const en: Messages = {
 	sponsor: {
 		label: 'Sponsor',
 		close: 'Close',
-		lead: "I make free tools and sites for languages and writing, out of love, and I pay for them myself. I don't have a job, and my small TA pay doesn't cover rent and food. Some days I can barely afford to eat.",
-		ask: 'Please help me keep going 🥺 Even one dollar helps me eat today.',
-		howTo: 'How to help',
+		lead: "I build these projects on my own, with no funding behind them. They're free for everyone, and I'd like to keep it that way.",
+		ask: 'If my work is useful to you, a tip on Ko-fi gives me time to keep improving it.',
+		howTo: 'How to tip',
 		steps: [
 			'Tap Ko-fi below.',
-			'Pick any amount. Small is fine.',
+			'Pick any amount, one-time or monthly.',
 			'Pay with PayPal or a card. No sign-up needed.'
 		],
 		kofi: 'One-time or monthly',
-		company: 'Company sponsorship',
-		companyHint: "I'd love to put your ad on this site. Please write to mkpoli@mkpo.li.",
-		thanks: 'Thank you for reading this far. Your help keeps me fed and keeps my projects going 💗'
+		company: 'Companies can sponsor too',
+		companyHint: 'With an ad on this site. Write to mkpoli@mkpo.li.',
+		thanks: 'Thank you for stopping by 💗'
 	}
 };
 
@@ -142,18 +141,18 @@ const zh: Messages = {
 	sponsor: {
 		label: '赞助',
 		close: '关闭',
-		lead: '出于一腔热爱，我一直在自费制作面向语言和文字的免费小工具与网站。我目前没有工作，微薄的助教补贴连房租和饭钱都不够，有些日子甚至快要吃不起饭了……',
-		ask: '求求大家帮帮我，让我能继续坚持下去🥺 哪怕只有1⁠美元，也能帮我解决今天的饭钱。',
-		howTo: '如何支持我',
+		lead: '这些项目都是我独立开发的，没有外部资金支持。大家都可以免费使用，我也希望一直这样做下去。',
+		ask: '如果我的作品对你有帮助，欢迎在Ko-fi上打赏，让我有更多时间继续完善它们。',
+		howTo: '如何打赏',
 		steps: [
 			'点击下方的Ko-fi。',
-			'随心选择金额，哪怕一点点也超级感激。',
-			'使用PayPal或银行卡支付，无需注册账号。'
+			'金额随心，可以一次性打赏，也可以每月支持。',
+			'使用PayPal或银行卡付款，无需注册。'
 		],
-		kofi: '单次或按月赞助',
-		company: '企业赞助',
-		companyHint: '我很乐意在网站上展示你的广告，欢迎发邮件至mkpoli@mkpo.li联系我。',
-		thanks: '谢谢你愿意看到这里。你的支持不仅能让我填饱肚子，也能让这些小项目继续走下去💗'
+		kofi: '一次性打赏或每月支持',
+		company: '也欢迎企业赞助',
+		companyHint: '可以通过在本站投放广告来支持我。欢迎来信：mkpoli@mkpo.li。',
+		thanks: '谢谢你来逛逛💗'
 	}
 };
 
