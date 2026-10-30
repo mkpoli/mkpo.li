@@ -3,8 +3,8 @@
 	import face from '$lib/assets/sponsor-face.webp';
 	import portrait from '$lib/assets/sponsor-portrait.webp';
 
-	/* A Sponsor pill led by mkpoli's face, and the dialog it opens: her portrait, why she needs
-	 * help, then three steps that end at the Ko-fi button. */
+	/* A Sponsor pill led by mkpoli's face, and the dialog it opens: her portrait, what a tip
+	 * pays for, then three steps that end at the Ko-fi button. */
 	let { compact = false }: { compact?: boolean } = $props();
 
 	let open = $state(false);
