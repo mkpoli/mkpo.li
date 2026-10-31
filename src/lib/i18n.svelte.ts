@@ -36,6 +36,8 @@ export interface Messages {
 		company: string;
 		companyHint: string;
 		thanks: string;
+		supporters: string;
+		anonymous: string;
 	};
 }
 
@@ -75,7 +77,9 @@ const ja: Messages = {
 		company: '企業スポンサー',
 		companyHint: 'このサイトへの広告掲載も大歓迎です。mkpoli@mkpo.liまでぜひご連絡ください。',
 		thanks:
-			'ここまで読んでくださって本当にありがとうございます。あたたかいご支援のおかげで、今日のご飯が食べられて、プロジェクトを続けていくことができます💗'
+			'ここまで読んでくださって本当にありがとうございます。あたたかいご支援のおかげで、今日のご飯が食べられて、プロジェクトを続けていくことができます💗',
+		supporters: '最近のサポーター',
+		anonymous: '匿名'
 	}
 };
 
@@ -114,7 +118,9 @@ const en: Messages = {
 		kofi: 'One-time or monthly',
 		company: 'Company sponsorship',
 		companyHint: "I'd love to put your ad on this site. Please write to mkpoli@mkpo.li.",
-		thanks: 'Thank you for reading this far. Your help keeps me fed and keeps my projects going 💗'
+		thanks: 'Thank you for reading this far. Your help keeps me fed and keeps my projects going 💗',
+		supporters: 'Recent supporters',
+		anonymous: 'Someone'
 	}
 };
 
@@ -153,7 +159,9 @@ const zh: Messages = {
 		kofi: '单次或按月赞助',
 		company: '企业赞助',
 		companyHint: '我很乐意在网站上展示你的广告，欢迎发邮件至mkpoli@mkpo.li联系我。',
-		thanks: '谢谢你愿意看到这里。你的支持不仅能让我填饱肚子，也能让这些小项目继续走下去💗'
+		thanks: '谢谢你愿意看到这里。你的支持不仅能让我填饱肚子，也能让这些小项目继续走下去💗',
+		supporters: '最近支持者',
+		anonymous: '某人'
 	}
 };
 
