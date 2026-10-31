@@ -68,12 +68,12 @@ const ja: Messages = {
 		howTo: 'チップの贈り方',
 		steps: [
 			'下のKo-fiをタップします。',
-			'1回のみ、または毎月からお好きな金額を選びます。',
+			'お好きな金額を選びます。',
 			'PayPalまたはカードで支払います。アカウント登録は不要です。'
 		],
 		kofi: '1回のみ、または毎月',
 		company: '企業様からのスポンサーも受け付けています',
-		companyHint: '当サイトへの広告掲載が可能です。mkpoli@mkpo.liまでお気軽にご連絡ください。',
+		companyHint: 'mkpoli@mkpo.liまでお気軽にご連絡ください。',
 		thanks: '見に来てくださりありがとうございます💗'
 	}
 };
@@ -107,12 +107,12 @@ const en: Messages = {
 		howTo: 'How to tip',
 		steps: [
 			'Tap Ko-fi below.',
-			'Pick any amount, one-time or monthly.',
+			'Pick any amount.',
 			'Pay with PayPal or a card. No sign-up needed.'
 		],
 		kofi: 'One-time or monthly',
 		company: 'Companies can sponsor too',
-		companyHint: 'With an ad on this site. Write to mkpoli@mkpo.li.',
+		companyHint: 'Write to mkpoli@mkpo.li.',
 		thanks: 'Thank you for stopping by 💗'
 	}
 };
@@ -144,14 +144,10 @@ const zh: Messages = {
 		lead: '这些项目都是我独立开发的，没有外部资金支持。大家都可以免费使用，我也希望一直这样做下去。',
 		ask: '如果我的作品对你有帮助，欢迎在Ko-fi上打赏，让我有更多时间继续完善它们。',
 		howTo: '如何打赏',
-		steps: [
-			'点击下方的Ko-fi。',
-			'金额随心，可以一次性打赏，也可以每月支持。',
-			'使用PayPal或银行卡付款，无需注册。'
-		],
+		steps: ['点击下方的Ko-fi。', '金额随心。', '使用PayPal或银行卡付款，无需注册。'],
 		kofi: '一次性打赏或每月支持',
 		company: '也欢迎企业赞助',
-		companyHint: '可以通过在本站投放广告来支持我。欢迎来信：mkpoli@mkpo.li。',
+		companyHint: '欢迎来信：mkpoli@mkpo.li。',
 		thanks: '谢谢你来逛逛💗'
 	}
 };
