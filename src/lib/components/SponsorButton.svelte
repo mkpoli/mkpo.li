@@ -3,8 +3,8 @@
 	import face from '$lib/assets/sponsor-face.webp';
 	import portrait from '$lib/assets/sponsor-portrait.webp';
 
-	/* A Sponsor pill led by mkpoli's face, and the dialog it opens: her portrait, why she needs
-	 * help, then three steps that end at the Ko-fi button. */
+	/* A Sponsor pill led by mkpoli's face, and the dialog it opens: her portrait, what a tip
+	 * pays for, then three steps that end at the Ko-fi button. */
 	let { compact = false }: { compact?: boolean } = $props();
 
 	let open = $state(false);
@@ -48,6 +48,10 @@
 	</span>
 	<span class="label">{m().sponsor.label}</span>
 </button>
+
+<svelte:head>
+	<script type="module" src="https://supporters.mkpo.li/roll.js"></script>
+</svelte:head>
 
 {#if open}
 	<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_noninteractive_element_interactions -->
@@ -143,6 +147,8 @@
 					><strong>{m().sponsor.company}</strong><small>{m().sponsor.companyHint}</small></span
 				>
 			</a>
+			<supporters-roll class="roll" label={m().sponsor.supporters} anonymous={m().sponsor.anonymous}
+			></supporters-roll>
 			<p class="thanks">{m().sponsor.thanks}</p>
 		</div>
 	</dialog>
@@ -495,6 +501,13 @@
 	.company .copy strong {
 		font-size: 0.78125rem;
 		color: var(--ink);
+	}
+
+	.roll {
+		--sp-text: var(--ink);
+		--sp-muted: var(--ink-soft);
+		--sp-soft: var(--bg-soft);
+		--sp-line: var(--petal);
 	}
 
 	.thanks {
