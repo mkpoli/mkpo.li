@@ -6,6 +6,7 @@
 	import { reducedMotion } from '$lib/theme.svelte';
 	import { PROJECTS, PROJECT_CATEGORIES, MINI_WORKS, type ProjectCategory } from '$lib/content';
 	import SectionShell from './SectionShell.svelte';
+	import { SCRIPT_PAGE } from '$lib/scripts';
 	/* the クィア hero keyword anchors to the TransNavi card (id="queer") */
 
 	let active = $state<ProjectCategory | 'all'>('all');
@@ -29,6 +30,8 @@
 </script>
 
 <SectionShell id="tsukuru">
+	<a class="chip scripts-link" href="/scripts">{pick(SCRIPT_PAGE.link)} →</a>
+
 	<div class="flex flex-wrap gap-2" role="group" aria-label={m().sections.tsukuru.filterAll}>
 		<button
 			type="button"
@@ -193,6 +196,11 @@
 		clip: rect(0, 0, 0, 0);
 		white-space: nowrap;
 		border: 0;
+	}
+
+	.scripts-link {
+		margin-bottom: 1rem;
+		color: var(--accent-strong);
 	}
 
 	.filter {
