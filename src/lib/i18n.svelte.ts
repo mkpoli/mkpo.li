@@ -33,6 +33,7 @@ export interface Messages {
 		howTo: string;
 		steps: [string, string, string];
 		kofi: string;
+		ofuse: string;
 		company: string;
 		companyHint: string;
 		thanks: string;
@@ -66,16 +67,17 @@ const ja: Messages = {
 		label: 'スポンサー',
 		close: '閉じる',
 		lead: 'これらのプロジェクトは外部からの資金援助を受けず、すべて個人で開発しています。どなたでも無料で利用できるようにしており、これからもずっと無料で続けていきたいと思っています。',
-		ask: 'もし制作物が少しでもお役に立っていましたら、Ko-fiでチップをいただけると、改善を続けていく時間を確保できます。',
+		ask: 'もし制作物が少しでもお役に立っていましたら、チップをいただけると、改善を続けていく時間を確保できます。',
 		howTo: 'チップの贈り方',
 		steps: [
-			'下のKo-fiをタップします。',
-			'お好きな金額を選びます。',
-			'PayPalまたはカードで支払います。アカウント登録は不要です。'
+			'下のどちらかのボタンを押します。',
+			'金額を選びます。',
+			'カードで支払います。登録は不要です。'
 		],
 		kofi: '1回のみ、または毎月',
-		company: '企業様からのスポンサーも受け付けています',
-		companyHint: 'mkpoli@mkpo.liまでお気軽にご連絡ください。',
+		ofuse: 'メッセージ付きチップ',
+		company: '企業スポンサーも歓迎しています。',
+		companyHint: 'mkpoli@mkpo.liまでご連絡ください。',
 		thanks: '見に来てくださりありがとうございます💗',
 		supporters: '最近のサポーター',
 		anonymous: '匿名'
@@ -107,15 +109,12 @@ const en: Messages = {
 		label: 'Sponsor',
 		close: 'Close',
 		lead: "I build these projects on my own, with no funding behind them. They're free for everyone, and I'd like to keep it that way.",
-		ask: 'If my work is useful to you, a tip on Ko-fi gives me time to keep improving it.',
+		ask: 'If my work is useful to you, a tip gives me time to keep improving it.',
 		howTo: 'How to tip',
-		steps: [
-			'Tap Ko-fi below.',
-			'Pick any amount.',
-			'Pay with PayPal or a card. No sign-up needed.'
-		],
+		steps: ['Tap either button below.', 'Pick an amount.', 'Pay by card. No sign-up needed.'],
 		kofi: 'One-time or monthly',
-		company: 'Companies can sponsor too',
+		ofuse: 'Tip with a message',
+		company: 'Companies can sponsor too.',
 		companyHint: 'Write to mkpoli@mkpo.li.',
 		thanks: 'Thank you for stopping by 💗',
 		supporters: 'Recent supporters',
@@ -148,12 +147,13 @@ const zh: Messages = {
 		label: '赞助',
 		close: '关闭',
 		lead: '这些项目都是我独立开发的，没有外部资金支持。大家都可以免费使用，我也希望一直这样做下去。',
-		ask: '如果我的作品对你有帮助，欢迎在Ko-fi上打赏，让我有更多时间继续完善它们。',
+		ask: '如果我的作品对你有帮助，欢迎打赏，让我有更多时间继续完善它们。',
 		howTo: '如何打赏',
-		steps: ['点击下方的Ko-fi。', '金额随心。', '使用PayPal或银行卡付款，无需注册。'],
-		kofi: '一次性打赏或每月支持',
-		company: '也欢迎企业赞助',
-		companyHint: '欢迎来信：mkpoli@mkpo.li。',
+		steps: ['点击下方的任一按钮。', '选择金额。', '用银行卡付款，无需注册。'],
+		kofi: '单次打赏或按月支持',
+		ofuse: '留言打赏',
+		company: '也欢迎企业赞助。',
+		companyHint: '请发邮件至mkpoli@mkpo.li。',
 		thanks: '谢谢你来逛逛💗',
 		supporters: '最近支持者',
 		anonymous: '某人'
