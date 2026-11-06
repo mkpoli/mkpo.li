@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { m } from '$lib/i18n.svelte';
+	import { getLocale, m } from '$lib/i18n.svelte';
 	import face from '$lib/assets/sponsor-face.webp';
 	import portrait from '$lib/assets/sponsor-portrait.webp';
 
 	/* A Sponsor pill led by mkpoli's face, and the dialog it opens: her portrait, what a tip
-	 * pays for, then three steps that end at the Ko-fi button. */
+	 * pays for, then three steps that end at the Ko-fi and OFUSE buttons. */
 	let { compact = false }: { compact?: boolean } = $props();
 
 	let open = $state(false);
@@ -14,13 +14,24 @@
 		if (open && dialog && !dialog.open) dialog.showModal();
 	});
 
-	/* A click on the backdrop closes the dialog; one on its own scrollbar also targets the dialog,
-	 * so only a click outside its box counts. */
-	function outside(event: MouseEvent) {
-		if (!dialog || event.target !== dialog) return;
+	/* A click on the backdrop closes the dialog. Both the press and the release must land outside
+	 * its box, so a text selection dragged out of it and a click on its own scrollbar stay open. */
+	let pressedOutside = false;
+
+	function isOutside(event: MouseEvent) {
+		if (!dialog || event.target !== dialog) return false;
 		const box = dialog.getBoundingClientRect();
 		const { clientX: x, clientY: y } = event;
-		if (x < box.left || x > box.right || y < box.top || y > box.bottom) dialog.close();
+		return x < box.left || x > box.right || y < box.top || y > box.bottom;
+	}
+
+	function press(event: MouseEvent) {
+		pressedOutside = isOutside(event);
+	}
+
+	function release(event: MouseEvent) {
+		if (pressedOutside && isOutside(event)) dialog?.close();
+		pressedOutside = false;
 	}
 
 	/* The dialog lives under <body>: the top bar copy would otherwise sit inside the bar, which turns
@@ -53,6 +64,35 @@
 	<script type="module" src="https://supporters.mkpo.li/roll.js"></script>
 </svelte:head>
 
+{#snippet kofi()}
+	<a class="tip kofi" href="https://ko-fi.com/mkpoli" target="_blank" rel="noreferrer">
+		<img class="mark" src="/brand/kofi-symbol.svg" alt="" width="34" height="27" />
+		<span class="copy"><strong>Ko-fi</strong><small>{m().sponsor.kofi}</small></span>
+		{@render arrow()}
+	</a>
+{/snippet}
+
+{#snippet ofuse()}
+	<a class="tip ofuse" href="https://ofuse.me/mkpoli" target="_blank" rel="noreferrer">
+		<img class="mark" src="/brand/ofuse-icon.svg" alt="" width="26" height="28" />
+		<span class="copy"><strong>OFUSE</strong><small>{m().sponsor.ofuse}</small></span>
+		{@render arrow()}
+	</a>
+{/snippet}
+
+{#snippet arrow()}
+	<svg
+		class="arrow"
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke="currentColor"
+		stroke-width="1.8"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+		aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" /></svg
+	>
+{/snippet}
+
 {#if open}
 	<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_noninteractive_element_interactions -->
 	<dialog
@@ -61,7 +101,8 @@
 		use:portal
 		aria-labelledby="sponsor-title"
 		onclose={() => (open = false)}
-		onclick={outside}
+		onmousedown={press}
+		onclick={release}
 	>
 		<header>
 			<h2 id="sponsor-title" class="display">{m().sponsor.label}</h2>
@@ -108,32 +149,7 @@
 					{#each m().sponsor.steps as step (step)}<li>{step}</li>{/each}
 				</ol>
 			</section>
-			<a class="kofi" href="https://ko-fi.com/mkpoli" target="_blank" rel="noreferrer">
-				<span class="mark" aria-hidden="true">
-					<svg
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="1.8"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						><path
-							d="M4 9h12v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4ZM16 11h2a2.5 2.5 0 0 1 0 5h-2M7 3v3M11 2v3M15 3v3"
-						/></svg
-					>
-				</span>
-				<span class="copy"><strong>Ko-fi</strong><small>{m().sponsor.kofi}</small></span>
-				<svg
-					class="arrow"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="1.8"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" /></svg
-				>
-			</a>
+			{#if getLocale() === 'ja'}{@render ofuse()}{@render kofi()}{:else}{@render kofi()}{@render ofuse()}{/if}
 			<a class="company" href="mailto:mkpoli@mkpo.li?subject=Sponsorship%20on%20mkpo.li">
 				<svg
 					viewBox="0 0 24 24"
@@ -182,7 +198,7 @@
 
 	.sponsor:focus-visible,
 	.close:focus-visible,
-	.kofi:focus-visible,
+	.tip:focus-visible,
 	.company:focus-visible {
 		outline: 2px solid var(--accent);
 		outline-offset: 2px;
@@ -423,30 +439,36 @@
 		transform: translateY(-1px);
 	}
 
-	.kofi {
+	.tip {
 		display: flex;
 		align-items: center;
 		gap: 0.75rem;
 		padding: 0.75rem 1.125rem 0.75rem 0.75rem;
 		border-radius: 9999px;
-		background: linear-gradient(135deg, #b23a74, #9c2d63);
 		color: #fff;
-		box-shadow: 0 6px 16px rgba(178, 58, 116, 0.32);
+		box-shadow: 0 6px 16px var(--tip-glow);
 	}
 
-	.mark {
-		display: grid;
+	.kofi {
+		--tip-glow: rgba(32, 32, 32, 0.28);
+		--tip-glow-hover: rgba(32, 32, 32, 0.38);
+		background: #202020;
+		border: 1px solid light-dark(#202020, rgba(255, 255, 255, 0.2));
+	}
+
+	.ofuse {
+		--tip-glow: rgba(38, 125, 160, 0.3);
+		--tip-glow-hover: rgba(38, 125, 160, 0.42);
+		background: #267da0;
+		border: 1px solid #267da0;
+	}
+
+	.tip .mark {
+		display: block;
 		flex: none;
-		place-items: center;
 		width: 2.375rem;
-		height: 2.375rem;
-		border-radius: 50%;
-		background: rgba(255, 255, 255, 0.22);
-	}
-
-	.mark svg {
-		width: 20px;
-		height: 20px;
+		height: 1.875rem;
+		object-fit: contain;
 	}
 
 	.arrow {
@@ -473,8 +495,12 @@
 		line-height: 1.45;
 	}
 
-	.kofi .copy strong {
+	.tip .copy strong {
 		font-size: 0.9375rem;
+	}
+
+	.tip .copy small {
+		color: #fff;
 	}
 
 	.company {
@@ -558,15 +584,15 @@
 			animation-delay: 1.6s;
 		}
 
-		.kofi {
+		.tip {
 			transition:
 				transform 180ms ease,
 				box-shadow 180ms ease;
 		}
 
-		.kofi:hover {
+		.tip:hover {
 			transform: translateY(-1px);
-			box-shadow: 0 8px 22px rgba(178, 58, 116, 0.42);
+			box-shadow: 0 8px 22px var(--tip-glow-hover);
 		}
 	}
 
