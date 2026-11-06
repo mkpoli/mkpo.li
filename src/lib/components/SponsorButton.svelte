@@ -14,13 +14,24 @@
 		if (open && dialog && !dialog.open) dialog.showModal();
 	});
 
-	/* A click on the backdrop closes the dialog; one on its own scrollbar also targets the dialog,
-	 * so only a click outside its box counts. */
-	function outside(event: MouseEvent) {
-		if (!dialog || event.target !== dialog) return;
+	/* A click on the backdrop closes the dialog. Both the press and the release must land outside
+	 * its box, so a text selection dragged out of it and a click on its own scrollbar stay open. */
+	let pressedOutside = false;
+
+	function isOutside(event: MouseEvent) {
+		if (!dialog || event.target !== dialog) return false;
 		const box = dialog.getBoundingClientRect();
 		const { clientX: x, clientY: y } = event;
-		if (x < box.left || x > box.right || y < box.top || y > box.bottom) dialog.close();
+		return x < box.left || x > box.right || y < box.top || y > box.bottom;
+	}
+
+	function press(event: MouseEvent) {
+		pressedOutside = isOutside(event);
+	}
+
+	function release(event: MouseEvent) {
+		if (pressedOutside && isOutside(event)) dialog?.close();
+		pressedOutside = false;
 	}
 
 	/* The dialog lives under <body>: the top bar copy would otherwise sit inside the bar, which turns
@@ -90,7 +101,8 @@
 		use:portal
 		aria-labelledby="sponsor-title"
 		onclose={() => (open = false)}
-		onclick={outside}
+		onmousedown={press}
+		onclick={release}
 	>
 		<header>
 			<h2 id="sponsor-title" class="display">{m().sponsor.label}</h2>
