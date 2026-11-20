@@ -373,6 +373,17 @@ export interface MiniWork {
 }
 
 const PUBLIC_REPO_WORKS: MiniWork[] = [
+	{ name: 'ids-input', href: 'https://ids.mkpo.li', category: 'language' },
+	{ name: 'glyph-atlas', href: 'https://glyphatlas.org', category: 'language' },
+	{ name: 'unencoded-db', href: 'https://rare.glyphatlas.org', category: 'language' },
+	{ name: 'han-input', href: 'https://han.mkpo.li', category: 'language' },
+	{ name: 'tangut-input', href: 'https://tangut.mkpo.li', category: 'language' },
+	{ name: 'khitan-input', href: 'https://khitan.mkpo.li', category: 'language' },
+	{ name: 'jurchen-input', href: 'https://jurchen.mkpo.li', category: 'language' },
+	{ name: 'moji', href: 'https://moji.mkpo.li', category: 'language' },
+	{ name: 'han-decompose', href: 'https://decompose.mkpo.li', category: 'language' },
+	{ name: 'writing-fails', href: 'https://writing-fails.mkpo.li', category: 'typesetting' },
+	{ name: 'GenZui', href: 'https://genzui.mkpo.li', category: 'typesetting' },
 	{ name: 'language-patterns', href: 'https://languagepatterns.org', category: 'research' },
 	{ name: 'p-graveyard', href: 'https://p.languagepatterns.org', category: 'research' },
 	{
@@ -463,8 +474,8 @@ const PUBLIC_REPO_WORKS: MiniWork[] = [
 		category: 'language'
 	},
 	{ name: 'site.aynu.org', href: 'https://site.aynu.org', category: 'language' },
-	{ name: 'identify-syntax', href: 'https://identify-syntax.vercel.app', category: 'language' },
-	{ name: 'han-reassemble', href: 'https://han-reassemble.vercel.app', category: 'language' },
+	{ name: 'identify-syntax', href: 'https://which-lang.mkpo.li', category: 'language' },
+	{ name: 'han-reassemble', href: 'https://han-reasm.mkpo.li', category: 'language' },
 	{ name: 'unicode-font-converter', href: 'https://ufont.mkpo.li/', category: 'language' },
 	{
 		name: 'FriedPotato',
@@ -503,7 +514,7 @@ const PUBLIC_REPO_WORKS: MiniWork[] = [
 		category: 'play',
 		archived: true
 	},
-	{ name: 'toki-pona-munjan', href: 'https://toki-pona-munjan.vercel.app', category: 'language' },
+	{ name: 'toki-pona-munjan', href: 'https://github.com/mkpoli/toki-pona-munjan', category: 'language' },
 	{
 		name: 'rime-toki-pona-munjan',
 		href: 'https://github.com/mkpoli/rime-toki-pona-munjan',
