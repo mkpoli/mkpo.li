@@ -514,7 +514,11 @@ const PUBLIC_REPO_WORKS: MiniWork[] = [
 		category: 'play',
 		archived: true
 	},
-	{ name: 'toki-pona-munjan', href: 'https://github.com/mkpoli/toki-pona-munjan', category: 'language' },
+	{
+		name: 'toki-pona-munjan',
+		href: 'https://github.com/mkpoli/toki-pona-munjan',
+		category: 'language'
+	},
 	{
 		name: 'rime-toki-pona-munjan',
 		href: 'https://github.com/mkpoli/rime-toki-pona-munjan',
